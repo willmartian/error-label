@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Easy Error Labels</title>
+
+    <script type="module" src="/build/error-label.esm.js"></script>
+    <script nomodule src="/build/error-label.js"></script>
+
+    <style>
+      label {
+        display: block;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      error-label {
+        color: red;
+        display: block;
+        margin: .5em;
+        margin-top: 1em;
+      }
+
+      error-label:not([hidden])::before {
+        content: '* '
+      }
+
+      error-label-group {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+
+    <template id="default-errors">
+      <error-label type="typeMismatch">Not a valid email.</error-label>
+      <error-label type="tooShort">Way too short buddy!</error-label>
+      <error-label type="badLang">I'm telling mom.</error-label>
+    </template>
+
+    <form action="#" data-errors="customErrors">
+      <label for="email-input">Email</label>
+      <input id="email-input" minlength="5" type="email"></input>
+      <error-label for="email-input" type="typeMismatch">Not a valid email :(</error-label>
+      <error-label for="email-input" type="tooShort">Way too short buddy!</error-label>
+      <error-label for="email-input" type="badLang">I'm telling mom.</error-label>
+      
+      <label for="email-input2">Error-Group Email</label>
+      <input id="email-input2" minlength="5" type="email"></input>
+      <error-label-group for="email-input2">
+        <error-label type="typeMismatch">Not a valid email.</error-label>
+        <error-label type="tooShort">Way too short buddy!</error-label>
+      </error-label-group>
+      
+      
+      <label for="email-input3">Error-Group Email</label>
+      <input id="email-input3" minlength="5" type="email"></input>
+      <error-label-group template="default-errors" for="email-input3"></error-label-group>
+      
+      <input type="submit" value="Submit!">
+    </form>
+
+    <script>
+      customErrors = {
+        'badLang': {
+          handler: target => target.value.includes('butt'),
+        }
+      }
+    </script>
+  </body>
+</html>
