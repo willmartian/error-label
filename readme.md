@@ -109,6 +109,19 @@ Error labels can also be grouped together to avoid repetition. Attributes define
 
 #### Templates
 
+Error groups can also copy content from `<template>` elements, to allow for reusable default messages.
+
+```html
+<template id="default-errors">
+  <error-label type="typeMismatch">Not a valid email.</error-label>
+  <error-label type="tooShort">Way too short!</error-label>
+</template>
+```
+
+```html
+<error-label-group template="default-errors" for="email-input"></error-label-group>
+```
+
 ### Styling
 
 Error labels and groups can be styled using plain CSS:
