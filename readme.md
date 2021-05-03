@@ -2,16 +2,105 @@
 
 # `<error-label>`
 
-Simple, declaritive, accessible error labeling.
+_Simple, declaritive, accessible error labeling._
 
-## Using this component
+```html
+<form>
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email"></input>
+  <error-label for="email-input" type="typeMismatch">Not a valid email.</error-label>
+</form>
+```
+
+Form validation is an annoying task that is necessary in almost _every_ web development project. 
+
+The `<error-label>` custom element builds off of the browser's default HTML Label element and Constraint Validation API to take the effort out of this common task. 
+
+- [Goals]()
+- [Features]()
+  - [Basic Errors]()
+  - [Custom Errors]()
+  - [Error Groups]()
+- [Usage]()
+  - [Browser]()
+  - [Node Modules]()
+
+## Goals
+
+## Features
+### Overview 
+
+The `<error-label>` custom element works much like the default `<label>` element. Error labels are linked to inputs using the `for` attribute: `<error-label for="inputId"></error-label>`
+
+However, error labels are not displayed to the user by default. They are only visible if the error designated in the `type` attribute has occured: `<error-label for="inputId" type="errorId"></error-label>`
+
+### Default Errors
+Without providing any [custom errors](), the `<error-label>` component will support all of the default errors defined by the [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState#properties):
+
+- `badInput`
+- `patternMismatch`
+- `rangeOverflow`
+- `rangeUnderflow`
+- `stepMismatch`
+- `tooLong`
+- `tooShort`
+- `typeMismatch`
+- `valid`
+- `valueMissing`
+
+#### Example
+```html
+<form>
+  <label for="password-input">Password</label>
+  <input id="password-input" type="password" minlength="6"></input>
+  <error-label for="password-input" type="typeMismatch">Your password must be at least 6 characters long.</error-label>
+</form>
+```
+
+### Custom Errors
+
+You can also provide your own custom error types by providing a config object to the parent `<form>` element's `data-error-config` attribute.
+```html
+<form data-error-config="errorLabelConfig">
+  <label for="name-input">Name</label>
+  <input id="name-input"></input>
+  <error-label for="name-input" type="badLang">Please don't say that.</error-label>
+</form>
+
+<script>
+errorLabelConfig = {
+  errors: {
+    'badLang': target => target.value.includes('butt'),
+  }
+} 
+</script>
+```
+Custom errors are added to the config objects `error` property. Custom errors are represented as functions that return a boolean value, where a truthy return value indicates the error is present.
+
+Returning a non-empty string will use it as the default message for that error:
+```html
+<form data-error-config="errorLabelConfig">
+  <label for="name-input">Name</label>
+  <input id="name-input"></input>
+  <error-label for="name-input" type="badLang"></error-label>
+</form>
+
+<script>
+errorLabelConfig = {
+  errors: {
+    'badLang': target => target.value.includes('butt') ? `Please don't say ${target.value}.` : false,
+  }
+} 
+</script>
+```
+
+### Error Groups
+
+## Usage
 
 ### Browser
-
 - Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/my-component.esm.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
 - Run `npm install my-component --save`
 - Put a script tag similar to this `<script src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
