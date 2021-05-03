@@ -12,20 +12,20 @@ _Simple, declaritive, accessible error labeling._
 </form>
 ```
 
-Form validation is an annoying task that is necessary in almost _every_ web development project. 
+Form validation with descriptive error messages is an annoying task that is [necessary]() in almost _every_ web development project.
 
-The `<error-label>` custom element builds off of the browser's default HTML Label element and Constraint Validation API to take the effort out of this common task. 
+The `<error-label>` custom element builds off of the browser's default `<label>` element and [Constraint Validation API]() to take the effort out of this common task, allowing developers to stay [DRY](). 
 
-- [Goals]()
+**The guiding philosopy of this project is that good error labels should require little to no custom JavaScript.**
+
 - [Features]()
   - [Basic Errors]()
   - [Custom Errors]()
   - [Error Groups]()
-- [Usage]()
+  - [Styling]()
+- [Using this component]()
   - [Browser]()
   - [Node Modules]()
-
-## Goals
 
 ## Features
 ### Overview 
@@ -96,7 +96,31 @@ errorLabelConfig = {
 
 ### Error Groups
 
-## Usage
+### Styling
+
+Error labels and groups can be styled using plain CSS:
+```html
+<style>
+  error-label {
+    color: red;
+    display: block;
+    margin: .5em;
+    margin-top: 1em;
+  }
+
+  error-label:not([hidden])::before {
+    content: '* '
+  }
+
+  error-label-group {
+    display: block;
+  }
+</style>
+```
+
+## Using this component
+
+### Licensing
 
 ### Browser
 - Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/my-component.esm.js'></script>` in the head of your index.html
