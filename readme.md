@@ -12,9 +12,9 @@ _Simple, declaritive, accessible error labeling._
 </form>
 ```
 
-Form validation with descriptive error messages is an annoying task that is [necessary]() in almost _every_ web development project.
+Form validation with descriptive error messages is an annoying task that is [necessary](https://www.nngroup.com/articles/visibility-system-status/) in almost _every_ web development project.
 
-The `<error-label>` custom element builds off of the browser's default `<label>` element and [Constraint Validation API]() to take the effort out of this common task, allowing developers to stay [DRY](). 
+The `<error-label>` custom element builds off of the browser's default `<label>` element and [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation) to take the effort out of this common task, allowing developers to stay [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). 
 
 **The guiding philosopy of this project is that good error labels should require little to no custom JavaScript.**
 
@@ -96,6 +96,19 @@ errorLabelConfig = {
 
 ### Error Groups
 
+Error labels can also be grouped together to avoid repetition. Attributes defined on the group will be inherited by the error labels within.
+
+```html
+<label for="email-input2">Error-Group Email</label>
+<input id="email-input2" minlength="5" type="email"></input>
+<error-label-group for="email-input2">
+  <error-label type="typeMismatch">Not a valid email.</error-label>
+  <error-label type="tooShort">Way too short buddy!</error-label>
+</error-label-group>
+```
+
+#### Templates
+
 ### Styling
 
 Error labels and groups can be styled using plain CSS:
@@ -120,7 +133,11 @@ Error labels and groups can be styled using plain CSS:
 
 ## Using this component
 
-### Licensing
+### Licenses
+
+#### Community License
+
+#### Enterprise License
 
 ### Browser
 - Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/my-component.esm.js'></script>` in the head of your index.html
