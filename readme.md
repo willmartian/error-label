@@ -2,7 +2,7 @@
 
 # `<error-label>`
 
-_Simple, declaritive, accessible error labeling._
+_Simple, declarative, accessible error labeling._
 
 ```html
 <form>
