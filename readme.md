@@ -19,11 +19,12 @@ The `<error-label>` custom element builds off of the browser's default `<label>`
 **The guiding philosopy of this project is that good error labels should require little to no custom JavaScript.**
 
 - [Features]()
-  - [Basic Errors]()
+  - [Default Errors]()
   - [Custom Errors]()
   - [Error Groups]()
   - [Styling]()
 - [Using this component]()
+  - [Licenses]()
   - [Browser]()
   - [Node Modules]()
 
