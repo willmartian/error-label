@@ -162,6 +162,12 @@ Error labels and groups can be styled using plain CSS:
 
 ## Using this component
 
+Include the following at the top of your HTML file:
+
+```html
+<script type="module" src="https://unpkg.com/error-label/dist/error-label/error-label.esm.js"></script>
+```
+
 ### Licenses
 
 #### Community License
