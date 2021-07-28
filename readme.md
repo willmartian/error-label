@@ -16,6 +16,8 @@ Form validation with descriptive error messages is an annoying task that is [nec
 
 The `<error-label>` custom element builds off of the browser's default `<label>` element and [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation) to take the effort out of this common task, allowing developers to stay [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). 
 
+[**Live Demo on Codepen**](https://codepen.io/willmartian/pen/BaRYvRy)
+
 **The guiding philosopy of this project is that good error labels should require little to no custom JavaScript.**
 
 - [Features]()
