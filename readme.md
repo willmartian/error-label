@@ -151,11 +151,8 @@ Error labels and groups can be styled using plain CSS:
 
 #### Community License
 
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
 #### Enterprise License
 
-### Browser
-- Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/my-component.esm.js'></script>` in the head of your index.html
-
-### Node Modules
-- Run `npm install my-component --save`
-- Put a script tag similar to this `<script src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
+A more permissive enterprise license is also available. Please direct all related inquiries [here.](https://willmartian.com/contact)
