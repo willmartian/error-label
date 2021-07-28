@@ -7,7 +7,7 @@ _Simple, declarative, accessible error labeling._
 ```html
 <form>
   <label for="email-input">Email</label>
-  <input id="email-input" type="email"></input>
+  <input id="email-input" type="email">
   <error-label for="email-input" type="typeMismatch">Not a valid email.</error-label>
 </form>
 ```
@@ -25,8 +25,6 @@ The `<error-label>` custom element builds off of the browser's default `<label>`
   - [Styling]()
 - [Using this component]()
   - [Licenses]()
-  - [Browser]()
-  - [Node Modules]()
 
 ## Features
 ### Overview 
@@ -53,18 +51,33 @@ Without providing any [custom errors](), the `<error-label>` component will supp
 ```html
 <form>
   <label for="password-input">Password</label>
-  <input id="password-input" type="password" minlength="6"></input>
-  <error-label for="password-input" type="typeMismatch">Your password must be at least 6 characters long.</error-label>
+  <input id="password-input" type="password" minlength="6">
+  <error-label for="password-input" type="tooShort">Your password must be at least 6 characters long.</error-label>
 </form>
 ```
 
-### Custom Errors
+### Custom Error Messages
+
+You can provide any custom message or HTML inside of an `<error-label>`. 
+
+In addition to this, you can also use the `{{value}}` variable to access the raw user input value, or the `{{length}}` variable to access its length. 
+
+#### Example
+```html
+<form>
+  <label for="num-input">Enter a number</label>
+  <input id="num-input" type="number">
+  <error-label for="num-input" type="badInput">{{value}} is not a number.</error-label>
+</form>
+```
+
+### Custom Error Types
 
 You can also provide your own custom error types by providing a config object to the parent `<form>` element's `data-error-config` attribute.
 ```html
 <form data-error-config="errorLabelConfig">
   <label for="name-input">Name</label>
-  <input id="name-input"></input>
+  <input id="name-input">
   <error-label for="name-input" type="badLang">Please don't say that.</error-label>
 </form>
 
@@ -82,7 +95,7 @@ Returning a non-empty string will use it as the default message for that error:
 ```html
 <form data-error-config="errorLabelConfig">
   <label for="name-input">Name</label>
-  <input id="name-input"></input>
+  <input id="name-input">
   <error-label for="name-input" type="badLang"></error-label>
 </form>
 
@@ -101,7 +114,7 @@ Error labels can also be grouped together to avoid repetition. Attributes define
 
 ```html
 <label for="email-input2">Error-Group Email</label>
-<input id="email-input2" minlength="5" type="email"></input>
+<input id="email-input2" minlength="5" type="email">
 <error-label-group for="email-input2">
   <error-label type="typeMismatch">Not a valid email.</error-label>
   <error-label type="tooShort">Way too short buddy!</error-label>

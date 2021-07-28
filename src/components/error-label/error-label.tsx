@@ -61,7 +61,7 @@ export class ErrorLabel {
 
   private extendErrorLabelGroup() {
     this.errorLabelGroup = this.el.closest('error-label-group');
-    
+
     if (this.errorLabelGroup) {
       this.for ??= this.errorLabelGroup.for;
       this.on ??= this.errorLabelGroup.on;
@@ -83,7 +83,20 @@ export class ErrorLabel {
       this.forTarget.setAttribute('aria-invalid', (!this.hidden).toString());
       this.forTarget.setCustomValidity(this.type);
       this.errorLabelGroup && (this.errorLabelGroup.hidden = false);
+
+      this.replaceLabelPlaceholders();
     }
+  }
+
+  private replaceLabelPlaceholders() {
+    const value = this.forTarget.value;
+    const valueContainer = this.el.querySelector('.error-value-var');
+    valueContainer && (valueContainer.textContent = value);
+    this.el.innerHTML = this.el.innerHTML.replace('{{value}}', `<span class="error-value-var">${value}</span>`);
+
+    const lengthContainer = this.el.querySelector('.error-length-var');
+    lengthContainer && (lengthContainer.textContent = value.length.toString());
+    this.el.innerHTML = this.el.innerHTML.replace('{{length}}', `<span class="error-length-var">${value.length}</span>`);
   }
 
   render() {

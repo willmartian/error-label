@@ -45,19 +45,19 @@
       <error-label for="email-input" type="typeMismatch">Not a valid email :(</error-label>
       <error-label for="email-input" type="tooShort">Way too short buddy!</error-label>
       <error-label for="email-input" type="badLang">I'm telling mom.</error-label>
-      
+
       <label for="email-input2">Error-Group Email</label>
       <input id="email-input2" minlength="5" type="email"></input>
       <error-label-group for="email-input2">
-        <error-label type="typeMismatch">Not a valid email.</error-label>
-        <error-label type="tooShort">Way too short buddy!</error-label>
+        <error-label type="typeMismatch">"{{value}}" is not a valid email.</error-label>
+        <error-label type="tooShort">{{length}} is way too short buddy!</error-label>
       </error-label-group>
-      
-      
+
+
       <label for="email-input3">Error-Group Email</label>
       <input id="email-input3" minlength="5" type="email"></input>
       <error-label-group template="default-errors" for="email-input3"></error-label-group>
-      
+
       <input type="submit" value="Submit!">
     </form>
 
