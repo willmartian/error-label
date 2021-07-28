@@ -1,6 +1,11 @@
 {
   "name": "error-label",
   "version": "0.0.1",
+  "author": {
+    "name": "William Martin",
+    "email": "contact@willmartian.com",
+    "url": "https://willmartian.com"
+  },
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
