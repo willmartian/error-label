@@ -20,13 +20,14 @@ The `<error-label>` custom element builds off of the browser's default `<label>`
 
 **The guiding philosopy of this project is that good error labels should require little to no custom JavaScript.**
 
-- [Features]()
-  - [Default Errors]()
-  - [Custom Errors]()
-  - [Error Groups]()
-  - [Styling]()
-- [Using this component]()
-  - [Licenses]()
+- [Features](#features)
+  - [Default Errors](#default-errors)
+  - [Custom Error Messages](#custorm-error-messages)
+  - [Custom Error Types](#custrom-error-types)
+  - [Error Groups](#error-groups)
+  - [Styling](#styling)
+- [Using this component](#using-this-component)
+  - [Licenses](#licenses)
 
 ## Features
 ### Overview 
